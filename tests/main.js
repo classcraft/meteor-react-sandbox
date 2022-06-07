@@ -1,4 +1,9 @@
+// @flow
+import { Meteor } from "meteor/meteor";
 import assert from "assert";
+
+declare var describe: any;
+declare var it: any;
 
 describe("async-poc", function () {
   it("package.json has correct name", async function () {

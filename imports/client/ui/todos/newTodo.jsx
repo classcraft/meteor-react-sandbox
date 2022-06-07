@@ -8,17 +8,21 @@ import CheckIcon from "@mui/icons-material/Check";
 import TextField from "@mui/material/TextField";
 import styled from "@emotion/styled";
 
-import type { CallMutation } from "/imports/client/types/callMutation";
+import type { UseMutationResult } from "react-query";
 
 const Form = styled.form({
   width: "100%",
 });
 
 type NewTodoProps = {|
-  mutation: CallMutation,
+  mutation: UseMutationResult<>,
 |};
 
-const EndAdornment = ({ onClick }) => (
+const EndAdornment = ({
+  onClick,
+}: {
+  onClick: (e: MouseEvent) => Promise<void>,
+}) => (
   <InputAdornment position="end">
     <IconButton onClick={onClick} edge="end">
       <CheckIcon color="success" />

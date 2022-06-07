@@ -1,5 +1,4 @@
 // @flow
-import React, { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
 
 import { Meteor } from "meteor/meteor";
@@ -7,25 +6,27 @@ import { Tracker } from "meteor/tracker";
 import { useTracker } from "meteor/react-meteor-data";
 
 import type { SubscriptionHandle } from "/imports/client/types/subscriptionHandle";
-import type { SubscriptionsAsset } from "/imports/client/types/subscriptionsAsset";
+import type { QueryClient } from "react-query";
 
-type Subcription = {| name: string, params: any |};
+export type Subcription = {| name: string, params?: Object |};
 
-function waitForSubscription(subscriptionHandle: SubscriptionHandle) {
-  return new Promise((resolve, reject) => {
+function waitForSubscription(
+  subscriptionHandle: SubscriptionHandle
+): Promise<?boolean> {
+  return new Promise((resolve) => {
     if (!subscriptionHandle) return resolve(null);
 
-    Tracker.nonreactive(() => {
-      Tracker.autorun((computation) => {
+    Tracker.nonreactive(() =>
+      Tracker.autorun(() => {
         if (subscriptionHandle.ready()) return resolve(true);
-      });
-    });
+      })
+    );
   });
 }
 
 function subscribe(
   subscription: Subcription,
-  queryClient: any
+  queryClient: QueryClient
 ): SubscriptionHandle {
   const { name, params } = subscription;
   const options = {
@@ -50,5 +51,5 @@ export const useWaitForSubscription = (
   const suspendForSubscription = (handle) =>
     useQuery([handle.name, handle.params], () => waitForSubscription(handle));
 
-  subscriptionHandles.forEach(suspendForSubscription);
+  subscriptionHandles.map(suspendForSubscription);
 };

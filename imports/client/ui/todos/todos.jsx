@@ -1,12 +1,8 @@
 // @flow
-import React, { Suspense, useEffect, useState, Fragment } from "react";
+import React from "react";
 import { useTracker } from "meteor/react-meteor-data";
-
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
 
-import { TodosCollection } from "/imports/api/Todos/TodosCollection";
 import { TodoItem } from "./todo";
 import { NewTodo } from "./newTodo";
 import { TodosHeader } from "./todosHeader";
@@ -15,10 +11,12 @@ import { TodosLoading, TodoLoading } from "./todosLoading";
 
 import { useSubscribe } from "/imports/client/hooks/subscriptionHooks";
 import { useCallMutation } from "/imports/client/hooks/callHooks";
-import { MeteorSuspense } from "/imports/client/suspense/MeteorSuspense";
+import { MeteorSuspense } from "/imports/client/suspense/meteorSuspense";
+import { TodosCollection } from "/imports/api/todos/todosCollection";
 import { PageContainer } from "/imports/client/layouts/pageContainer";
 
-const useTodos = () => useTracker(() => TodosCollection.find().fetch());
+const trackTodos = () => TodosCollection.find().fetch();
+const useTodos = () => useTracker(trackTodos);
 
 const TodosList = () => {
   const items = useTodos();

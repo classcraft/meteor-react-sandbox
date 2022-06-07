@@ -2,11 +2,11 @@ import { Meteor } from "meteor/meteor";
 import {
   TodosCollection,
   mockedTodos,
-} from "/imports/api/Todos/TodosCollection";
+} from "/imports/api/todos/todosCollection";
 import {
   ArticlesCollection,
   mockedArticles,
-} from "/imports/api/Articles/ArticlesCollection";
+} from "/imports/api/articles/articlesCollection";
 
 import "./publications";
 import "./methods";

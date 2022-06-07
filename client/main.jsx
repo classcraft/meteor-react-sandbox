@@ -1,19 +1,24 @@
 // @flow
+import React from "react";
 import { Meteor } from "meteor/meteor";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 
-import { App } from "/imports/client/ui/App";
+import { App } from "/imports/client/ui/app";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       suspense: true,
       cacheTime: 0,
+      staleTime: 1000,
       retry: 0,
+      notifyOnChangeProps: ["data", "error"],
+      notifyOnChangePropsExclusions: ["isStale"],
+      refetchOnMount: false,
+      refetchOnReconnect: false,
       refetchOnWindowFocus: false,
       useErrorBoundary: true,
     },

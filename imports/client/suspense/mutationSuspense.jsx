@@ -1,8 +1,9 @@
 // @flow
-import type { CallMutation } from "/imports/client/types/callMutation";
+
+import type { UseMutationResult } from "react-query";
 
 type MutationSuspenseProps = {|
-  mutation: CallMutation,
+  mutation: UseMutationResult<>,
   fallback: React$Node,
   children: React$Node,
 |};

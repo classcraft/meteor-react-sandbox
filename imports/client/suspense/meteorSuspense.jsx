@@ -1,11 +1,7 @@
 // @flow
-import { Meteor } from "meteor/meteor";
-import React, { type Element, Suspense, useEffect, useState } from "react";
+import React, { type Element, Suspense } from "react";
 
-import {
-  useWaitForSubscription,
-  useSubscribe,
-} from "/imports/client/hooks/subscriptionHooks";
+import { useWaitForSubscription } from "/imports/client/hooks/subscriptionHooks";
 import type { SubscriptionHandle } from "/imports/client/types/subscriptionHandle";
 
 type MeteorSuspenseContentProps = {|
@@ -20,6 +16,7 @@ type MeteorSuspenseProps = {|
 
 const SuspenseContent = (props: MeteorSuspenseContentProps) => {
   useWaitForSubscription(props.subscriptionHandles);
+
   return <>{props.children}</>;
 };
 

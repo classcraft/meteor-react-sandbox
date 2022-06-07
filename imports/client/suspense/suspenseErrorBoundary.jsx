@@ -1,5 +1,4 @@
 // @flow
-import { Meteor } from "meteor/meteor";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { QueryErrorResetBoundary } from "react-query";
@@ -8,7 +7,7 @@ export const SuspenseErrorBoundary = (props: {
   fallback: ({
     error: Error,
     resetErrorBoundary: () => void,
-  }) => React$Element<any>,
+  }) => React$Node,
   children: React$Node,
 }): React$Node => (
   <QueryErrorResetBoundary>

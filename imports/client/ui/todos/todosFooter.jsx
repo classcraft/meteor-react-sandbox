@@ -4,7 +4,7 @@ import { useTracker } from "meteor/react-meteor-data";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 
-import { TodosCollection } from "/imports/api/Todos/TodosCollection";
+import { TodosCollection } from "/imports/api/todos/todosCollection";
 
 const byNotCompleted = ({ completed }) => !completed;
 
@@ -22,4 +22,3 @@ export function TodosFooter(): React$Node {
     </ListItem>
   );
 }
-const useTodos = () => useTracker(() => TodosCollection.find().fetch());

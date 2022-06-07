@@ -1,5 +1,5 @@
 // @flow
-import { TodosCollection } from "/imports/api/Todos/TodosCollection";
+import { TodosCollection } from "/imports/api/todos/todosCollection";
 import { wait } from "/imports/debug/wait";
 
 type ToggleTodoCompleteParams = {|

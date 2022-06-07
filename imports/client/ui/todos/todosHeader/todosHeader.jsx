@@ -1,11 +1,10 @@
 // @flow
-import React, { useState, Suspense } from "react";
+import React, { Suspense } from "react";
 
 import Stack from "@mui/material/Stack";
 import Skeleton from "@mui/material/Skeleton";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
 import { green } from "@mui/material/colors";
 
 import { ErrorBoundary } from "react-error-boundary";
@@ -30,7 +29,7 @@ const TodoHeaderError = () => (
   <TodoUserInfoContainer>
     <Avatar sx={{ width: 56, height: 56 }} />
     <Typography variant="h4" color="error">
-      Error fetching user's name
+      Error fetching user info
     </Typography>
   </TodoUserInfoContainer>
 );
@@ -42,8 +41,8 @@ const TodoUserInfo = () => {
     <TodoUserInfoContainer>
       <Avatar
         src={avatar}
-        sx={{ width: 64, height: 64, bgcolor: green[300] }}
-      ></Avatar>
+        sx={{ width: 64, height: 64, bgcolor: green[200] }}
+      />
       <Typography variant="h4">{`${name} To-Do List ✅`}</Typography>
     </TodoUserInfoContainer>
   );

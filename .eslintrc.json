@@ -5,11 +5,15 @@
     "node": true,
     "meteor": true
   },
+  "parser": "@babel/eslint-parser",
   "extends": [
+    "plugin:flowtype/recommended",
+    "plugin:meteor/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:flowtype/recommended"
+    "plugin:react-hooks/recommended"
   ],
+  "plugins": ["flowtype", "react"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -17,9 +21,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "unused-imports"],
-  "rules": {
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": "error"
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

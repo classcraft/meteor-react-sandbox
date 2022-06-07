@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -7,7 +8,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import { useLocation, useNavigate, Outlet } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Todos } from "./todos";
 import { About } from "./about";
@@ -46,9 +47,11 @@ const TopBar = () => {
   );
 };
 
-const MainContent = ({ children }) => <Box>{children}</Box>;
+const MainContent = ({ children }: { children: React$Node }) => (
+  <Box>{children}</Box>
+);
 
-export const App = () => {
+export const App = (): React$Node => {
   return (
     <AppContainer>
       <TopBar />

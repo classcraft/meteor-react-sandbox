@@ -1,9 +1,9 @@
 // @flow
 import { Meteor } from "meteor/meteor";
 import { wait } from "/imports/debug/wait";
-import { findArticleById } from "/imports/api/Articles/utils/findArticleById";
+import { findArticleById } from "/imports/api/articles/utils/findArticleById";
 
-import type { Article } from "/imports/api/Articles/ArticlesTypes";
+import type { Article } from "/imports/api/articles/articlesTypes";
 
 type FetchArticleParams = {|
   _id: string,

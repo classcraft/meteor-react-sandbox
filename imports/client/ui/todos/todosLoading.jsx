@@ -2,7 +2,6 @@
 import React, { Fragment } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 
 const SKELETON_TODO_COUNT = 5;
